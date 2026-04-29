@@ -6,15 +6,15 @@
 //
 // Input:  n/a
 // Return: n/a
-/**************************************************************/
-  const firebaseConfig = {
-    apiKey: ,
-    authDomain: ,
-    databaseURL: ,
-    projectId: ,
-    storageBucket: ,
-    messagingSenderId:,
-    appId:
+/**************************************************************/  
+const firebaseConfig = {
+    apiKey: "AIzaSyDdgYYt_2atKFvwO0U9pIHQwOp1rTIfmlU",
+    authDomain: "aydin-green-12comp.firebaseapp.com",
+    databaseURL: "https://aydin-green-12comp-default-rtdb.firebaseio.com",
+    projectId: "aydin-green-12comp",
+    storageBucket: "aydin-green-12comp.firebasestorage.app",
+    messagingSenderId: "114190641424",
+    appId: "1:114190641424:web:c95f80fb759b1b72535d95"
   };
 
   // Initialize Firebase
