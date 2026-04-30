@@ -19,9 +19,27 @@ const HTML_OUTPUT = document.getElementById("databaseOutput");
 /**************************************************************/
 function helloWorld(){
   console.log("Running helloWorld()")
-  firebase.database().ref('/').set(
+  firebase.database().ref('users/Ben').set(
     {
-      message: 'Hello World!'
+      age: 99,
+      feet: 2,
+      hair: "insufficient",
     }
   )
+}
+
+function simpleRead() {
+  console.log("Reading message");
+  firebase.database().ref('/').child('message').once('value', display, fb_readError);
+  console.log("Leaving simpleRead")
+}
+function display(snapshot) {
+  console.log("Running display(), the message is: " + snapshot.val())
+  HTML_OUTPUT.innerHTML = snapshot.val();
+  var dbData = snapshot.val();
+  if (dbData == null) {
+    console.log('There was no record when trying to read the message');
+  } else {
+    console.log("The message is: " + dbData)
+  }
 }
