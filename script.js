@@ -29,8 +29,8 @@ function helloWorld(){
 }
 
 function simpleRead() {
-  console.log("Reading message");
-  firebase.database().ref('/').child('message').once('value', display, fb_readError);
+  console.log("Reading messagefghjkl");
+  firebase.database().ref('/').child('Message:').once('value', display, fb_readError);
   console.log("Leaving simpleRead")
 }
 function display(snapshot) {
