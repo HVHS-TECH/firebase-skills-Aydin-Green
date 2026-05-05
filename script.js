@@ -29,17 +29,21 @@ function helloWorld(){
 }
 
 function simpleRead() {
-  console.log("Reading messagefghjkl");
-  firebase.database().ref('/').child('Message:').once('value', display, fb_readError);
+  console.log("Reading message");
+  firebase.database().ref('users/Ben').child('hair').once('value', display, fb_readError);
   console.log("Leaving simpleRead")
 }
 function display(snapshot) {
   console.log("Running display(), the message is: " + snapshot.val())
-  HTML_OUTPUT.innerHTML = snapshot.val();
+  HTML_OUTPUT.innerHTML += snapshot.val();
   var dbData = snapshot.val();
   if (dbData == null) {
     console.log('There was no record when trying to read the message');
   } else {
     console.log("The message is: " + dbData)
   }
+}
+function fb_readListener() {
+  console.log("Read Listener");
+  firebase.database().ref('users/Ben').child('hair').on('value', display, fb_readError)
 }
