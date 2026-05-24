@@ -23,7 +23,7 @@ function helloWorld(){
     {
       age: 99,
       feet: 2,
-      hair: "insufficient",
+      hair: null,
     }
   )
 }
@@ -46,4 +46,14 @@ function display(snapshot) {
 function fb_readListener() {
   console.log("Read Listener");
   firebase.database().ref('users/Ben').child('hair').on('value', display, fb_readError)
+}
+function update() {
+  firebase.database().ref('users/Ben').update(
+    {
+      monitary_worth: 0,
+      humor: 99999999999999,
+      shoe_size: null,
+      
+    }
+  )
 }
