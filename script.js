@@ -49,7 +49,7 @@ function display(snapshot) {
 }
 function fb_readListener() {
   console.log("Read Listener");
-  firebase.database().ref('users/Ben').child('age').on('value', display, fb_readError)
+  firebase.database().ref('users').child('Ben').on('value', display, fb_readError)
 }
 function update() {
   firebase.database().ref('users/Ben').update(
@@ -60,4 +60,18 @@ function update() {
       
     }
   )
+}
+function add() {
+  firebase.database().ref('users/Ben').update(
+    {
+    feet: dbData["feet"]+1,
+    }
+  )
+}
+function test() {
+  function blah(snapshot){
+    snapshot.forEach(blah(snapshot))
+    console.log ("blah")
+  }
+firebase.database().ref('users/Ben').orderByValue().once('value', display, fb_readError)
 }
