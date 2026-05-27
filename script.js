@@ -27,16 +27,20 @@ function helloWorld(){
     }
   )
 }
-
+ var dbData 
 function simpleRead() {
   console.log("Reading message");
-  firebase.database().ref('users/Ben').child('hair').once('value', display, fb_readError);
+  firebase.database().ref('users').child('Ben').once('value', display, fb_readError);
   console.log("Leaving simpleRead")
 }
 function display(snapshot) {
-  console.log("Running display(), the message is: " + snapshot.val())
-  HTML_OUTPUT.innerHTML += snapshot.val();
-  var dbData = snapshot.val();
+   dbData = snapshot.val();
+     console.log("Running display(), the message is: " + snapshot.val())
+  console.log (snapshot.val())
+  console.log (dbData["feet"])
+  HTML_OUTPUT.innerHTML = dbData["feet"];
+
+
   if (dbData == null) {
     console.log('There was no record when trying to read the message');
   } else {
@@ -45,7 +49,7 @@ function display(snapshot) {
 }
 function fb_readListener() {
   console.log("Read Listener");
-  firebase.database().ref('users/Ben').child('hair').on('value', display, fb_readError)
+  firebase.database().ref('users/Ben').child('age').on('value', display, fb_readError)
 }
 function update() {
   firebase.database().ref('users/Ben').update(
